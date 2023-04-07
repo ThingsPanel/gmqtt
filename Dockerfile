@@ -20,7 +20,8 @@ COPY ./cmd/gmqttd/default_config.yml /etc/gmqtt/gmqttd.yml
 COPY ./cmd/gmqttd/gmqtt_password.yml /etc/gmqtt/gmqtt_password.yml
 ENV PATH=$PATH:/etc/gmqtt
 RUN chmod +x gmqttd
-ENTRYPOINT ["/etc/gmqtt/gmqttd","start"]
+ENTRYPOINT ["gmqttd","start"]
+
 
 
 
