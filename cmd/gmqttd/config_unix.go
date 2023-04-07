@@ -4,7 +4,7 @@
 package main
 
 var (
-	DefaultConfigDir = "/gmqttd"
+	DefaultConfigDir = "/etc/gmqtt"
 )
 
 func getDefaultConfigDir() (string, error) {
