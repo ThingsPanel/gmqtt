@@ -1,6 +1,6 @@
 FROM golang:alpine AS builder
 
-RUN apk add make git
+RUN apk update && apk add --no-cache make git
 
 ADD . /go/src/github.com/ThingsPanel/gmqtt
 WORKDIR /go/src/github.com/ThingsPanel/gmqtt
@@ -24,5 +24,3 @@ COPY ./cmd/gmqttd/certs /gmqttd/certs
 ENV PATH=$PATH:/gmqttd
 RUN chmod +x gmqttd
 ENTRYPOINT ["gmqttd","start"]
-
-
