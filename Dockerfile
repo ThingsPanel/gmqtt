@@ -15,4 +15,4 @@ EXPOSE 1883 8883 8082 8083 8084
 RUN chmod +x gmqttd
 RUN pwd
 RUN ls -lrt
-ENTRYPOINT ["./gmqttd", "start", "-c", "/gmqttd/gmqttd.yml"]
+ENTRYPOINT ["./gmqttd", "start", "-c", "/gmqttd/default_config.yml"]
