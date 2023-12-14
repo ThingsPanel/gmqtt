@@ -5,7 +5,7 @@ WORKDIR /go/src/github.com/ThingsPanel/gmqtt
 ENV GO111MODULE on
 ENV GOPROXY="https://goproxy.io"
 EXPOSE 1883 8883 8082 8083 8084
-RUN make binary
+# RUN make binary
 
 FROM alpine:3.12
 WORKDIR /gmqttd
@@ -18,4 +18,5 @@ COPY ./cmd/gmqttd/thingspanel.yml /gmqttd/thingspanel.yml
 COPY ./cmd/gmqttd/certs /gmqttd/certs
 ENV PATH=$PATH:/gmqttd
 RUN chmod +x gmqttd
-ENTRYPOINT ["gmqttd","start"]
+# ENTRYPOINT ["gmqttd","start"]
+ENTRYPOINT ["gmqttd", "start", "-c", "/gmqttd/gmqttd.yml"]
