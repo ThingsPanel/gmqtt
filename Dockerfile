@@ -9,7 +9,7 @@ RUN make binary
 
 FROM alpine:3.12
 WORKDIR /gmqttd
-RUN apk update && apk add --no-cache tzdata
+# RUN apk update && apk add --no-cache tzdata
 COPY --from=builder /go/src/github.com/ThingsPanel/gmqtt/build/gmqttd .
 RUN mkdir /etc/gmqtt
 COPY ./cmd/gmqttd/default_config.yml /gmqttd/gmqttd.yml
