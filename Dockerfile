@@ -5,7 +5,6 @@ ADD . ./
 ENV GO111MODULE on
 ENV GOPROXY="https://goproxy.io"
 WORKDIR $GOPATH/src/app/cmd/gmqttd
-RUN pwd
 RUN ls -lrt
 RUN go build
 
