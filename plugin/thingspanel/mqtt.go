@@ -6,6 +6,7 @@ import (
 
 	mqtt "github.com/eclipse/paho.mqtt.golang"
 	"github.com/pborman/uuid"
+	"github.com/spf13/viper"
 )
 
 type MqttClient struct {
@@ -18,7 +19,8 @@ var DefaultMqttClient *MqttClient = &MqttClient{}
 func (c *MqttClient) MqttInit() error {
 	opts := mqtt.NewClientOptions()
 	opts.SetUsername("root")
-	opts.SetPassword("root")
+	password := viper.GetString("mqtt.password")
+	opts.SetPassword(password)
 	opts.AddBroker("localhost:1883")
 	opts.SetAutoReconnect(true)
 	opts.SetOrderMatters(false)
